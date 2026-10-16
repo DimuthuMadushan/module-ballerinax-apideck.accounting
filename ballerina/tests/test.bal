@@ -81,98 +81,98 @@ function testListBankAccounts() returns error? {
     test:assertTrue(response.data.length() > 0);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateInvoice() returns error? {
     CreateInvoiceResponse response = check apideck->createInvoice({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateBill() returns error? {
     CreateBillResponse response = check apideck->createBill({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateCustomer() returns error? {
     CreateCustomerResponse response = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateSupplier() returns error? {
     CreateSupplierResponse response = check apideck->createSupplier({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "sup_1"});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreatePayment() returns error? {
-    CreatePaymentResponse response = check apideck->createPayment({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "pay_1", transactionDate: "2026-03-10", totalAmount: 100.0d});
+    CreatePaymentResponse response = check apideck->createPayment({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {transactionDate: "2026-03-10", totalAmount: 100.0d});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateJournalEntry() returns error? {
     CreateJournalEntryResponse response = check apideck->createJournalEntry({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {});
     test:assertTrue(response.data.id != "");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetInvoice() returns error? {
     GetInvoiceResponse response = check apideck->getInvoice("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetBill() returns error? {
     GetBillResponse response = check apideck->getBill("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetCustomer() returns error? {
     GetCustomerResponse response = check apideck->getCustomer("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetSupplier() returns error? {
     GetSupplierResponse response = check apideck->getSupplier("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetLedgerAccount() returns error? {
     GetLedgerAccountResponse response = check apideck->getLedgerAccount("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testGetTaxRate() returns error? {
     GetTaxRateResponse response = check apideck->getTaxRate("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.statusCode, 200);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testUpdateInvoice() returns error? {
     UpdateInvoiceResponse response = check apideck->updateInvoice("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {});
     test:assertEquals(response.data.id, "id_1");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testUpdateCustomer() returns error? {
     UpdateCustomerResponse response = check apideck->updateCustomer("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
     test:assertEquals(response.data.id, "id_1");
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testDeleteInvoice() returns error? {
     CreateInvoiceResponse created = check apideck->createInvoice({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {});
     DeleteInvoiceResponse response = check apideck->deleteInvoice(<string>created.data.id, {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.data.id, created.data.id);
 }
 
-@test:Config {groups: ["live_tests", "mock_tests"]}
+@test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testDeleteCustomer() returns error? {
     CreateCustomerResponse created = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
     DeleteCustomerResponse response = check apideck->deleteCustomer(<string>created.data.id, {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});

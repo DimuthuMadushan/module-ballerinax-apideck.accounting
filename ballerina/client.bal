@@ -813,7 +813,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Details of the payment to create 
     # + return - Payment created 
-    remote isolated function createPayment(CreatePaymentHeaders headers, Payment payload, *CreatePaymentQueries queries) returns CreatePaymentResponse|error {
+    remote isolated function createPayment(CreatePaymentHeaders headers, PaymentCreateInput payload, *CreatePaymentQueries queries) returns CreatePaymentResponse|error {
         string resourcePath = string `/payments`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);

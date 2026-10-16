@@ -45,7 +45,6 @@ public function main() returns error? {
     accounting:CreatePaymentResponse payment = check apideck->createPayment(
         {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId},
         {
-            id: "",
             transactionDate: dueDate,
             totalAmount: amount,
             customer: {id: customerId},

@@ -30,4 +30,12 @@ bal test --groups mock_tests
 
 ## Tests
 
-The suite covers 25 operations against the mock service: listing, creating, reading, updating and deleting invoices, bills, customers and suppliers, plus listing and reading payments, ledger accounts, journal entries, tax rates and bank accounts.
+The suite covers 25 operations against the mock service:
+
+- Invoices and customers: list, create, get, update and delete
+- Bills and suppliers: list, create and get
+- Payments and journal entries: list and create
+- Ledger accounts and tax rates: list and get
+- Bank accounts: list
+
+Only the 9 list tests run in `live_tests`. The create, get, update and delete tests use placeholder payloads and IDs, so they run only in `mock_tests` and are skipped when `IS_LIVE_SERVER` is `true`.

@@ -414,7 +414,7 @@ service / on ep0 {
     # http:NotFound (The specified resource was not found)
     # http:UnprocessableEntity (Unprocessable)
     # http:DefaultStatusCodeResponse (Unexpected error)
-    resource function post payments(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload Payment payload, boolean raw = false) returns CreatePaymentResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
+    resource function post payments(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload PaymentCreateInput payload, boolean raw = false) returns CreatePaymentResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
         return <CreatePaymentResponse>{statusCode: 200, status: "OK", 'service: "quickbooks", 'resource: "Payments", operation: "add", data: {id: "pay_6001"}};
     }
 

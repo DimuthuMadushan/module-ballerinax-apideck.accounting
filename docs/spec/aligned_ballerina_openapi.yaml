@@ -12413,7 +12413,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Payment'
+              $ref: '#/components/schemas/PaymentCreateInput'
         required: true
         description: Details of the payment to create
       responses:
