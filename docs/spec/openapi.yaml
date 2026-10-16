@@ -1736,8 +1736,6 @@ components:
         updated_at: low
         created_by: low
         updated_by: low
-      required:
-        - id
       x-apideck-strict-required:
         - name
       properties:
@@ -14951,7 +14949,6 @@ components:
         created_at: medium
         updated_at: medium
       required:
-        - id
         - total_amount
       x-apideck-strict-required:
         - total_amount
@@ -20224,8 +20221,6 @@ components:
         updated_at: low
         updated_by: low
         created_by: low
-      required:
-        - id
       x-apideck-strict-required:
         - bank_account_type
         - source_account_id
@@ -20424,8 +20419,6 @@ components:
         updated_at: low
         updated_by: low
         created_by: low
-      required:
-        - id
       x-apideck-strict-required:
         - bank_feed_account_id
         - status
@@ -22382,7 +22375,6 @@ components:
         created_at: medium
         updated_at: medium
       required:
-        - id
         - total_amount
       x-apideck-strict-required:
         - total_amount
@@ -28414,7 +28406,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreditNote'
+              $ref: '#/components/schemas/CreditNoteCreateInput'
       responses:
         '201':
           $ref: '#/components/responses/CreateCreditNoteResponse'
@@ -28748,7 +28740,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreditNote'
+              $ref: '#/components/schemas/CreditNoteCreateInput'
       responses:
         '200':
           $ref: '#/components/responses/UpdateCreditNoteResponse'
@@ -30425,7 +30417,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/CustomerCreateInput'
       responses:
         '201':
           $ref: '#/components/responses/CreateCustomerResponse'
@@ -30659,7 +30651,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/CustomerCreateInput'
       responses:
         '200':
           $ref: '#/components/responses/UpdateCustomerResponse'
@@ -31182,7 +31174,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Supplier'
+              $ref: '#/components/schemas/SupplierCreateInput'
       x-apideck-gotchas:
         - connector: snelstart
           description: |
@@ -31583,7 +31575,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Supplier'
+              $ref: '#/components/schemas/SupplierCreateInput'
       responses:
         '200':
           $ref: '#/components/responses/UpdateSupplierResponse'
@@ -32482,7 +32474,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Payment'
+              $ref: '#/components/schemas/PaymentCreateInput'
       responses:
         '200':
           $ref: '#/components/responses/UpdatePaymentResponse'
@@ -39845,7 +39837,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BillPayment'
+              $ref: '#/components/schemas/BillPaymentCreateInput'
       responses:
         '201':
           $ref: '#/components/responses/CreateBillPaymentResponse'
@@ -40068,7 +40060,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BillPayment'
+              $ref: '#/components/schemas/BillPaymentCreateInput'
       responses:
         '200':
           $ref: '#/components/responses/UpdateBillPaymentResponse'

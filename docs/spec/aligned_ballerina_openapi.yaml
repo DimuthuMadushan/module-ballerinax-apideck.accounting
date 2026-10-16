@@ -7308,7 +7308,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreditNote'
+              $ref: '#/components/schemas/CreditNoteCreateInput'
         required: true
         description: Details of the credit note to create
       responses:
@@ -7916,7 +7916,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreditNote'
+              $ref: '#/components/schemas/CreditNoteCreateInput'
         required: true
         description: Fields of the credit note to update
       responses:
@@ -10219,7 +10219,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/CustomerCreateInput'
         required: true
         description: Details of the customer to create
       responses:
@@ -10595,7 +10595,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/CustomerCreateInput'
         required: true
         description: Fields of the customer to update
       responses:
@@ -11300,7 +11300,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Supplier'
+              $ref: '#/components/schemas/SupplierCreateInput'
         required: true
         description: Details of the supplier to create
       responses:
@@ -11729,7 +11729,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Supplier'
+              $ref: '#/components/schemas/SupplierCreateInput'
         required: true
         description: Fields of the supplier to update
       responses:
@@ -12934,7 +12934,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Payment'
+              $ref: '#/components/schemas/PaymentCreateInput'
         required: true
         description: Fields of the payment to update
       responses:
@@ -22448,7 +22448,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BillPayment'
+              $ref: '#/components/schemas/BillPaymentCreateInput'
         required: true
         description: Details of the bill payment to create
       responses:
@@ -22984,7 +22984,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BillPayment'
+              $ref: '#/components/schemas/BillPaymentCreateInput'
         required: true
         description: Fields of the bill payment to update
       responses:
@@ -29792,8 +29792,6 @@ components:
       nullable: true
       example: 27.5
     BankFeedAccount:
-      required:
-      - id
       type: object
       properties:
         target_account_name:
@@ -43077,7 +43075,6 @@ components:
         display_name: medium
     Refund:
       required:
-      - id
       - total_amount
       type: object
       properties:
@@ -45782,7 +45779,6 @@ components:
           example: OK
     SalesReceipt:
       required:
-      - id
       - total_amount
       type: object
       properties:
@@ -48613,8 +48609,6 @@ components:
       nullable: true
       example: US
     AccountingBankAccount:
-      required:
-      - id
       type: object
       properties:
         bsb_number:
@@ -49686,8 +49680,6 @@ components:
           description: HTTP Response Status
           example: OK
     BankFeedStatement:
-      required:
-      - id
       type: object
       properties:
         end_date:

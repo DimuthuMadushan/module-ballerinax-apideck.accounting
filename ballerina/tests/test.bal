@@ -95,13 +95,13 @@ function testCreateBill() returns error? {
 
 @test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateCustomer() returns error? {
-    CreateCustomerResponse response = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
+    CreateCustomerResponse response = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {displayName: "Acme Ltd"});
     test:assertTrue(response.data.id != "");
 }
 
 @test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testCreateSupplier() returns error? {
-    CreateSupplierResponse response = check apideck->createSupplier({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "sup_1"});
+    CreateSupplierResponse response = check apideck->createSupplier({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {displayName: "Northwind Supplies"});
     test:assertTrue(response.data.id != "");
 }
 
@@ -161,7 +161,7 @@ function testUpdateInvoice() returns error? {
 
 @test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testUpdateCustomer() returns error? {
-    UpdateCustomerResponse response = check apideck->updateCustomer("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
+    UpdateCustomerResponse response = check apideck->updateCustomer("id_1", {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {displayName: "Acme Ltd"});
     test:assertEquals(response.data.id, "id_1");
 }
 
@@ -174,7 +174,7 @@ function testDeleteInvoice() returns error? {
 
 @test:Config {groups: ["mock_tests"], enable: !isLiveServer}
 function testDeleteCustomer() returns error? {
-    CreateCustomerResponse created = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {id: "cust_1"});
+    CreateCustomerResponse created = check apideck->createCustomer({x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId}, {displayName: "Acme Ltd"});
     DeleteCustomerResponse response = check apideck->deleteCustomer(<string>created.data.id, {x\-apideck\-consumer\-id: consumerId, x\-apideck\-app\-id: appId});
     test:assertEquals(response.data.id, created.data.id);
 }

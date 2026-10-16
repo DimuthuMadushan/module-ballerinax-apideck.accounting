@@ -311,7 +311,7 @@ service / on ep0 {
     # http:NotFound (The specified resource was not found)
     # http:UnprocessableEntity (Unprocessable)
     # http:DefaultStatusCodeResponse (Unexpected error)
-    resource function patch customers/[string id](@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Payload Customer payload, boolean raw = false) returns UpdateCustomerResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
+    resource function patch customers/[string id](@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Payload CustomerCreateInput payload, boolean raw = false) returns UpdateCustomerResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
         return <UpdateCustomerResponse>{statusCode: 200, status: "OK", 'service: "quickbooks", 'resource: "Customers", operation: "update", data: {id: id}};
     }
 
@@ -370,7 +370,7 @@ service / on ep0 {
     # http:NotFound (The specified resource was not found)
     # http:UnprocessableEntity (Unprocessable)
     # http:DefaultStatusCodeResponse (Unexpected error)
-    resource function post customers(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload Customer payload, boolean raw = false) returns CreateCustomerResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
+    resource function post customers(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload CustomerCreateInput payload, boolean raw = false) returns CreateCustomerResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
         return <CreateCustomerResponse>{statusCode: 200, status: "OK", 'service: "quickbooks", 'resource: "Customers", operation: "add", data: {id: "cust_2001"}};
     }
 
@@ -434,7 +434,7 @@ service / on ep0 {
     # http:NotFound (The specified resource was not found)
     # http:UnprocessableEntity (Unprocessable)
     # http:DefaultStatusCodeResponse (Unexpected error)
-    resource function post suppliers(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload Supplier payload, boolean raw = false) returns CreateSupplierResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
+    resource function post suppliers(@http:Header {name: "x-apideck-consumer-id"} string xApideckConsumerId, @http:Header {name: "x-apideck-app-id"} string xApideckAppId, @http:Header {name: "x-apideck-service-id"} string? xApideckServiceId, @http:Header {name: "x-apideck-company-id"} string? xApideckCompanyId, @http:Payload SupplierCreateInput payload, boolean raw = false) returns CreateSupplierResponse|BadRequestResponseBadRequest|UnauthorizedResponseUnauthorized|PaymentRequiredResponsePaymentRequired|NotFoundResponseNotFound|UnprocessableResponseUnprocessableEntity|UnexpectedErrorResponseDefault {
         return <CreateSupplierResponse>{statusCode: 200, status: "OK", 'service: "quickbooks", 'resource: "Suppliers", operation: "add", data: {id: "sup_7001"}};
     }
 }

@@ -461,7 +461,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Details of the credit note to create 
     # + return - Credit Note created 
-    remote isolated function createCreditNote(CreateCreditNoteHeaders headers, CreditNote payload, *CreateCreditNoteQueries queries) returns CreateCreditNoteResponse|error {
+    remote isolated function createCreditNote(CreateCreditNoteHeaders headers, CreditNoteCreateInput payload, *CreateCreditNoteQueries queries) returns CreateCreditNoteResponse|error {
         string resourcePath = string `/credit-notes`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -504,7 +504,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Fields of the credit note to update 
     # + return - Credit Note updated 
-    remote isolated function updateCreditNote(string id, UpdateCreditNoteHeaders headers, CreditNote payload, *UpdateCreditNoteQueries queries) returns UpdateCreditNoteResponse|error {
+    remote isolated function updateCreditNote(string id, UpdateCreditNoteHeaders headers, CreditNoteCreateInput payload, *UpdateCreditNoteQueries queries) returns UpdateCreditNoteResponse|error {
         string resourcePath = string `/credit-notes/${getEncodedUri(id)}`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -637,7 +637,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Details of the customer to create 
     # + return - Customers 
-    remote isolated function createCustomer(CreateCustomerHeaders headers, Customer payload, *CreateCustomerQueries queries) returns CreateCustomerResponse|error {
+    remote isolated function createCustomer(CreateCustomerHeaders headers, CustomerCreateInput payload, *CreateCustomerQueries queries) returns CreateCustomerResponse|error {
         string resourcePath = string `/customers`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -680,7 +680,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Fields of the customer to update 
     # + return - Customers 
-    remote isolated function updateCustomer(string id, UpdateCustomerHeaders headers, Customer payload, *UpdateCustomerQueries queries) returns UpdateCustomerResponse|error {
+    remote isolated function updateCustomer(string id, UpdateCustomerHeaders headers, CustomerCreateInput payload, *UpdateCustomerQueries queries) returns UpdateCustomerResponse|error {
         string resourcePath = string `/customers/${getEncodedUri(id)}`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -725,7 +725,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Details of the supplier to create 
     # + return - Supplier created 
-    remote isolated function createSupplier(CreateSupplierHeaders headers, Supplier payload, *CreateSupplierQueries queries) returns CreateSupplierResponse|error {
+    remote isolated function createSupplier(CreateSupplierHeaders headers, SupplierCreateInput payload, *CreateSupplierQueries queries) returns CreateSupplierResponse|error {
         string resourcePath = string `/suppliers`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -768,7 +768,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Fields of the supplier to update 
     # + return - Supplier updated 
-    remote isolated function updateSupplier(string id, UpdateSupplierHeaders headers, Supplier payload, *UpdateSupplierQueries queries) returns UpdateSupplierResponse|error {
+    remote isolated function updateSupplier(string id, UpdateSupplierHeaders headers, SupplierCreateInput payload, *UpdateSupplierQueries queries) returns UpdateSupplierResponse|error {
         string resourcePath = string `/suppliers/${getEncodedUri(id)}`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -856,7 +856,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Fields of the payment to update 
     # + return - Payment Updated 
-    remote isolated function updatePayment(string id, UpdatePaymentHeaders headers, Payment payload, *UpdatePaymentQueries queries) returns UpdatePaymentResponse|error {
+    remote isolated function updatePayment(string id, UpdatePaymentHeaders headers, PaymentCreateInput payload, *UpdatePaymentQueries queries) returns UpdatePaymentResponse|error {
         string resourcePath = string `/payments/${getEncodedUri(id)}`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -1833,7 +1833,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Details of the bill payment to create 
     # + return - Bill Payment created 
-    remote isolated function createBillPayment(CreateBillPaymentHeaders headers, BillPayment payload, *CreateBillPaymentQueries queries) returns CreateBillPaymentResponse|error {
+    remote isolated function createBillPayment(CreateBillPaymentHeaders headers, BillPaymentCreateInput payload, *CreateBillPaymentQueries queries) returns CreateBillPaymentResponse|error {
         string resourcePath = string `/bill-payments`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
@@ -1876,7 +1876,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Fields of the bill payment to update 
     # + return - Bill Payment updated 
-    remote isolated function updateBillPayment(string id, UpdateBillPaymentHeaders headers, BillPayment payload, *UpdateBillPaymentQueries queries) returns UpdateBillPaymentResponse|error {
+    remote isolated function updateBillPayment(string id, UpdateBillPaymentHeaders headers, BillPaymentCreateInput payload, *UpdateBillPaymentQueries queries) returns UpdateBillPaymentResponse|error {
         string resourcePath = string `/bill-payments/${getEncodedUri(id)}`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);

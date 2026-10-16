@@ -108,7 +108,7 @@ public type BankFeedAccount record {|
     # Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
     Currency? currency?;
     # A unique identifier for an object
-    Id id;
+    Id id?;
     # Type of the bank account
     @jsondata:Name {value: "bank_account_type"}
     "bank"|"credit_card" bankAccountType?;
@@ -3212,7 +3212,7 @@ public type Refund record {|
     # Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
     Currency? currency?;
     # Unique identifier representing the refund
-    string id;
+    string id?;
     @jsondata:Name {value: "shipping_address"}
     Address shippingAddress?;
     LinkedDepartment? department?;
@@ -4002,7 +4002,7 @@ public type SalesReceipt record {|
     # Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
     Currency? currency?;
     # Unique identifier representing the sales receipt
-    string id;
+    string id?;
     @jsondata:Name {value: "shipping_address"}
     Address shippingAddress?;
     LinkedDepartment? department?;
@@ -5076,7 +5076,7 @@ public type AccountingBankAccount record {|
     # Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
     Currency? currency?;
     # A unique identifier for an object
-    Id id;
+    Id id?;
     @jsondata:Name {value: "bank_code"}
     BankCode? bankCode?;
     # The overdraft limit for the account
@@ -11828,7 +11828,7 @@ public type BankFeedStatement record {|
     @jsondata:Name {value: "bank_feed_account_id"}
     string bankFeedAccountId?;
     # A unique identifier for an object
-    Id id;
+    Id id?;
     # The current status of the bank feed statement
     "pending"|"rejected"|"success" status?;
     # Start date of the bank feed statement

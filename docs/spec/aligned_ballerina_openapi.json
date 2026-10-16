@@ -5739,7 +5739,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/CreditNote"
+                                "$ref": "#/components/schemas/CreditNoteCreateInput"
                             }
                         }
                     },
@@ -6238,7 +6238,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/CreditNote"
+                                "$ref": "#/components/schemas/CreditNoteCreateInput"
                             }
                         }
                     },
@@ -8216,7 +8216,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Customer"
+                                "$ref": "#/components/schemas/CustomerCreateInput"
                             }
                         }
                     },
@@ -8619,7 +8619,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Customer"
+                                "$ref": "#/components/schemas/CustomerCreateInput"
                             }
                         }
                     },
@@ -9280,7 +9280,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Supplier"
+                                "$ref": "#/components/schemas/SupplierCreateInput"
                             }
                         }
                     },
@@ -9710,7 +9710,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Supplier"
+                                "$ref": "#/components/schemas/SupplierCreateInput"
                             }
                         }
                     },
@@ -10815,7 +10815,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Payment"
+                                "$ref": "#/components/schemas/PaymentCreateInput"
                             }
                         }
                     },
@@ -19869,7 +19869,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/BillPayment"
+                                "$ref": "#/components/schemas/BillPaymentCreateInput"
                             }
                         }
                     },
@@ -20274,7 +20274,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/BillPayment"
+                                "$ref": "#/components/schemas/BillPaymentCreateInput"
                             }
                         }
                     },
@@ -27521,9 +27521,6 @@
                 "example": 27.5
             },
             "BankFeedAccount": {
-                "required": [
-                    "id"
-                ],
                 "type": "object",
                 "properties": {
                     "target_account_name": {
@@ -45340,7 +45337,6 @@
             },
             "Refund": {
                 "required": [
-                    "id",
                     "total_amount"
                 ],
                 "type": "object",
@@ -49067,7 +49063,6 @@
             },
             "SalesReceipt": {
                 "required": [
-                    "id",
                     "total_amount"
                 ],
                 "type": "object",
@@ -52877,9 +52872,6 @@
                 "example": "US"
             },
             "AccountingBankAccount": {
-                "required": [
-                    "id"
-                ],
                 "type": "object",
                 "properties": {
                     "bsb_number": {
@@ -54304,9 +54296,6 @@
                 }
             },
             "BankFeedStatement": {
-                "required": [
-                    "id"
-                ],
                 "type": "object",
                 "properties": {
                     "end_date": {

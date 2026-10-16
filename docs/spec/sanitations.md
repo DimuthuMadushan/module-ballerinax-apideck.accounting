@@ -1,4 +1,4 @@
-_Author_:  DimuthuMadushan \
+_Author_:  @DimuthuMadushan \
 _Created_: 2026/10/16 \
 _Updated_: 2026/10/16 \
 _Edition_: Swan Lake
@@ -185,13 +185,18 @@ These changes are done in order to improve the overall usability, and as workaro
 
 31. Change the `apiKey` security scheme to HTTP bearer
 - **Original**: `type: apiKey`, `in: header`, `name: Authorization`, with a long description. The client took an `ApiKeysConfig` whose `authorization` value had to start with the `Bearer` prefix, followed by a space.
-- **Updated**: `type: http`, `scheme: bearer`, with a one-line description. The scheme key stays `apiKey`, so the 179 `security` references are unchanged. The change is made in the original spec and in `aligned_ballerina_openapi.json`.
+- **Updated**: `type: http`, `scheme: bearer`, with a one-line description. The scheme key stays `apiKey`, so the 179 `security` references are unchanged.
 - **Reason**: Apideck expects `Authorization: Bearer <API key>`, which is what a bearer scheme sends. The client now takes the standard `ConnectionConfig` with `auth: {token: apiKey}`.
 
-32. Use `PaymentCreateInput` as the request body of `createPayment`
-- **Original**: `POST /payments` (`paymentsAdd`) took the read model `Payment`, which lists the read-only `id` as required.
-- **Updated**: The request body is `$ref: '#/components/schemas/PaymentCreateInput'`, the writable shape the spec already defines. The change is made in the original spec and in `aligned_ballerina_openapi.json`.
-- **Reason**: With `Payment`, callers had to pass an `id` the server assigns. The mock's `post payments` resource takes the same type.
+32. Use the `*CreateInput` schemas as request bodies
+- **Original**: The create and update operations of customers, suppliers, credit notes, payments and bill payments took the read models `Customer`, `Supplier`, `CreditNote`, `Payment` and `BillPayment`, which list the read-only `id` as required.
+- **Updated**: Their request bodies reference the writable schemas the spec already defines: `CustomerCreateInput`, `SupplierCreateInput`, `CreditNoteCreateInput`, `PaymentCreateInput` and `BillPaymentCreateInput`. This covers `POST /customers`, `PATCH /customers/{id}`, `POST /suppliers`, `PATCH /suppliers/{id}`, `POST /credit-notes`, `PATCH /credit-notes/{id}`, `POST /payments`, `PATCH /payments/{id}`, `POST /bill-payments` and `PATCH /bill-payments/{id}`. The spec has no separate update inputs, so the update operations use the create inputs too.
+- **Reason**: With the read models, callers had to pass an `id` the server assigns, and update calls repeated the `id` from the path. The mock's `post customers`, `patch customers/[id]`, `post suppliers` and `post payments` resources take the same types.
+
+33. Remove `id` from `required` in schemas used as request bodies that have no input schema
+- **Original**: `Refund` and `SalesReceipt` required `id` and `total_amount`. `AccountingBankAccount`, `BankFeedAccount` and `BankFeedStatement` required `id`. Each of these is the request body of its create and update operation, and its `id` is read-only.
+- **Updated**: `id` is removed from each `required` list. `Refund` and `SalesReceipt` keep `total_amount`, and the other three no longer have a `required` list.
+- **Reason**: The spec defines no writable input schema for these resources, and the generator ignores `readOnly`, so callers had to pass a dummy `id`. As a side effect, `id` is optional in the response types of these five resources.
 
 ## OpenAPI cli command
 
